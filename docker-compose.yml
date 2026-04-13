@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  no-show-cleanup:
+    build: .
+    container_name: neat-appspace-cleanup
+    restart: unless-stopped
+    env_file:
+      - .env
+    # Optional: run in background and keep container alive
+    command: >
+      sh -c "while true; do python neat_appspace_no_show_cleanup.py; sleep 60; done"

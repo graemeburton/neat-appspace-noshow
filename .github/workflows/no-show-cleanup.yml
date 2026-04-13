@@ -1,0 +1,42 @@
+name: Neat + Appspace No-Show Cleanup
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'     # Every minute
+  workflow_dispatch:           # Allows manual trigger
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pytz python-dotenv
+
+      - name: Create .env from secrets
+        run: |
+          cat > .env << EOF
+          NEAT_TENANT_ID=${{ secrets.NEAT_TENANT_ID }}
+          NEAT_API_KEY=${{ secrets.NEAT_API_KEY }}
+          APPSPACE_BASE_URL=${{ secrets.APPSPACE_BASE_URL }}
+          APPSPACE_SUBJECT_ID=${{ secrets.APPSPACE_SUBJECT_ID }}
+          APPSPACE_REFRESH_TOKEN=${{ secrets.APPSPACE_REFRESH_TOKEN }}
+          RESOURCE_TO_ROOM_MAP=${{ secrets.RESOURCE_TO_ROOM_MAP }}
+          DRY_RUN=${{ secrets.DRY_RUN }}
+          SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL }}
+          TEAMS_WEBHOOK_URL=${{ secrets.TEAMS_WEBHOOK_URL }}
+          TIMEZONE=${{ secrets.TIMEZONE }}
+          CHECK_WINDOW_MINUTES=${{ secrets.CHECK_WINDOW_MINUTES }}
+          EOF
+
+      - name: Run no-show cleanup
+        run: python neat_appspace_no_show_cleanup.py
