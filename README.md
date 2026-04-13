@@ -76,4 +76,3 @@ Automatically cancels empty meetings in Appspace using Neat Pulse presence senso
 ## Ackknowledgements
 ---
 Grok
-https://grok.com/share/bGVnYWN5_289f5dc4-7112-4545-ba7c-56855485f0e2
