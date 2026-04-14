@@ -75,6 +75,6 @@ ________________________________________________________________________________
 
 ## Acknowledgements
 ---
-This integration was written with the assiatnce of [Grok](https://grok.com)
+This integration was written with the assistance of [Grok](https://grok.com)
 
 A special note to Robert Winefield at Appspace :-)
