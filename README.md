@@ -21,13 +21,14 @@ Automatically **deletes** (cancels) scheduled meetings in Appspace if **no one e
 
 ## New Features Explained
 
-Dry-Run Mode
+###Dry-Run Mode
 Set DRY_RUN=true in .env → script will only log what it would cancel and send notifications.
-Notifications
 
-SLACK_WEBHOOK_URL → Slack incoming webhook
-TEAMS_WEBHOOK_URL → Microsoft Teams incoming webhook
-Both optional — leave blank to disable.
+###Notifications
+
+- SLACK_WEBHOOK_URL → Slack incoming webhook
+- TEAMS_WEBHOOK_URL → Microsoft Teams incoming webhook
+- Both optional — leave blank to disable.
 
 ---
 
@@ -38,29 +39,31 @@ Both optional — leave blank to disable.
 - Appspace Application credentials (`subject_id` and `refresh_token`)
 - Access to both Neat Pulse and Appspace admin consoles to get Resource/Room IDs
 
-## Full File List
+### Full File List
 
-neat_appspace_no_show_cleanup.py	<--- Main script
-.env + .env.example 			<--- Environments variables, don't commit .env file to GitHub
-Dockerfile				<--- 
-docker-compose.yml			<--- 
-.github/workflows/no-show-cleanup.yml	<---
-README.md				<--- Readme file (this file)
+- neat_appspace_no_show_cleanup.py	<--- Main script
+- .env + .env.example 			<--- Environments variables, don't commit .env file to GitHub
+- Dockerfile				<--- 
+- docker-compose.yml			<--- 
+- .github/workflows/no-show-cleanup.yml	<---
+- README.md				<--- Readme file (this file)
 
 ---
 
-## Quick Start
-
+### Quick Start
+```
 bash
-cp .env.example .env          # ← edit this file
+cp .env.example .env			← Edit the .env.example file and copy to the .env file
 pip install requests pytz python-dotenv
 python neat_appspace_no_show_cleanup.py
-
+```
 
 ##Docker
+```
 ~Bash
 docker compose up --build -d
 
+```
 ##GitHub Actions
 
 Add all your secrets in Repository Settings → Secrets and variables → Actions
@@ -69,7 +72,7 @@ Workflow runs every minute automatically
 
 _______________________________________________________________________________________________________________________________________
 
-# Neat Pulse + Appspace No-Show Meeting Cleanup
+## Neat Pulse + Appspace No-Show Meeting Cleanup
 
 Automatically cancels empty meetings in Appspace using Neat Pulse presence sensors.
 
