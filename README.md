@@ -51,7 +51,7 @@ Set DRY_RUN=true in .env → script will only log what it would cancel and send 
 ---
 
 ## Quick Start
-Edit the '.env.example', which contains your private keys file and copy to the '.env' file **Do Not** commit the '.env' to Github
+Edit the `.env.example`, which contains your private keys file and copy to the `.env` file **DO NOT** commit the `.env` to Github
 ```
 ~Bash
 cp .env.example .env
