@@ -51,9 +51,10 @@ Set DRY_RUN=true in .env → script will only log what it would cancel and send 
 ---
 
 ## Quick Start
+Edit the '.env.example', which contains your private keys file and copy to the '.env' file **Do Not** commit the '.env' to Github
 ```
-bash
-cp .env.example .env			← Edit the .env.example file and copy to the .env file
+~Bash
+cp .env.example .env
 pip install requests pytz python-dotenv
 python neat_appspace_no_show_cleanup.py
 ```
@@ -74,4 +75,4 @@ ________________________________________________________________________________
 
 ## Acknowledgements
 ---
-Grok
+This integration was written with the assiatnce of [Grok](https://grok.com)
